@@ -25,11 +25,11 @@ function createEmployeeRecords(records) {
 
 function createTimeInEvent(employeeRecord,time) {
      const hour = time.slice(11,15)
-     const MDYdate = time.slice(0,10)
+     const mdydate = time.slice(0,10)
      const timeInEmployee = {
        type: "TimeIn",
        hour: parseInt(hour, 10),
-       date: MDYdate
+       date: mdydate
      }
      employeeRecord.timeInEvents.push(timeInEmployee)
      return employeeRecord  
@@ -37,11 +37,11 @@ function createTimeInEvent(employeeRecord,time) {
 
 function createTimeOutEvent(employeeRecord,time){
      const hour = time.slice(11,15)
-     const MDYdate = time.slice(0,10)
+     const mdydate = time.slice(0,10)
      const timeOutEmployee = {
        type: "TimeOut",
        hour: parseInt(hour, 10),
-       date: MDYdate
+       date: mdydate
      }
      employeeRecord.timeOutEvents.push(timeOutEmployee)
      return employeeRecord;
@@ -71,9 +71,9 @@ function allWagesFor(employeeRecord){
 
 
 
-function calculatePayroll(EmployeeArray) {
+function calculatePayroll(employeeArray) {
      let total = 0
-     EmployeeArray.forEach(employee => {
+     employeeArray.forEach(employee => {
        total = total + allWagesFor(employee)
      })
      return total
